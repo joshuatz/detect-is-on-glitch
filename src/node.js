@@ -11,6 +11,8 @@ const nodeDetector = async () => {
 			return true;
 		}
 	}
+
+	return false;
 };
 
 module.exports = {
