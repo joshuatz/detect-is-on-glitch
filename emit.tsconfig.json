@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"target": "es6",
+		"esModuleInterop": true,
+		"declaration": true,
+		"emitDeclarationOnly": false,
+		"noEmit": false,
+		"outDir": "dist"
+	},
+	"include": ["src/**/*", "globals.d.ts"]
+}

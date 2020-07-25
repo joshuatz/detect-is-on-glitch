@@ -2,26 +2,46 @@
 	"name": "detect-is-on-glitch",
 	"version": "1.0.0",
 	"description": "Check if your code is executing on Glitch",
-	"main": "src/index.js",
-	"bin": {
-		"detect-is-on-glitch": "src/cli.js",
-		"isglitch": "src/cli.js"
-	},
-	"scripts": {
-		"build": "browserify -e src/index.js -o dist/detect-is-on-glitch.js -s detectIsOnGlitch && yarn minify",
-		"minify": "echo 'minify not setup yet'"
-	},
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/joshuatz/detect-is-on-glitch"
+		"url": "https://github.com/joshuatz/detect-is-on-glitch.git"
 	},
-	"homepage": "@TODO",
-	"author": "Joshua Tzucker",
-	"license": "MIT",
+	"homepage": "https://github.com/joshuatz/detect-is-on-glitch",
+	"author": {
+		"name": "Joshua Tzucker",
+		"url": "https://joshuatz.com/?utm_source=package"
+	},
+	"keywords": [
+		"glitch.com",
+		"glitchdotcom"
+	],
+	"bin": {
+		"detect-is-on-glitch": "dist/cli.js",
+		"isglitch": "dist/cli.js"
+	},
+	"main": "dist/index",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"make-dist": "shx mkdir dist && cd dist && shx mkdir browser",
+		"prebuild": "shx rm -rf dist && yarn make-dist && shx rm 'src/**/*.d.ts' || shx true",
+		"build-node": "tsc --project emit.tsconfig.json",
+		"build-web": "parcel build src/index.js --target browser --out-dir dist/browser --out-file glitch-detect.min.js --global detectIsOnGlitch --experimental-scope-hoisting",
+		"build": "yarn build-node && yarn build-web"
+	},
+	"files": [
+		"dist/"
+	],
 	"devDependencies": {
-		"browserify": "^16.5.1"
+		"@types/node": "^14.0.26",
+		"parcel": "^1.12.4",
+		"shx": "^0.3.2",
+		"typescript": "^3.9.7"
 	},
 	"dependencies": {
 		"commander": "^5.1.0"
-	}
+	},
+	"browserslist": [
+		"since 2017-06"
+	]
 }

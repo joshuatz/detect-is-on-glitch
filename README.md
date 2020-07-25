@@ -14,7 +14,7 @@ Options:
 		 - `isglitch -i && echo "Not running on Glitch"`
  - Pull in to front-end
 	```html
-	<script src="node_modules/detect-is-on-glitch/dist/detect-is-on-glitch.js"></script>
+	<script src="node_modules/detect-is-on-glitch/dist/browser/glitch-detect.min.js"></script>
 	<script>
 	detectIsOnGlitch().then((res) => {
 		alert(`You are ${res ? '' : 'not '}on Glitch`);
@@ -33,6 +33,9 @@ Options:
 		}
 	});
 	```
+
+## Building
+`yarn build`
 
 ## Detection method
 Right now, the detection method is extremely simple:
