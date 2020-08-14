@@ -1,6 +1,6 @@
 {
 	"name": "detect-is-on-glitch",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Check if your code is executing on Glitch",
 	"license": "MIT",
 	"repository": {

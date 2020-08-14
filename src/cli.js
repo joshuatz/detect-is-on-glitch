@@ -3,7 +3,7 @@ const program = require('commander');
 // @ts-ignore
 const packageInfo = require('../package.json');
 const detectIsOnGlitch = require('./index');
-globalThis.G_CALLED_FROM_CLI = true;
+global.G_CALLED_FROM_CLI = true;
 
 program.version(packageInfo.version).option('-i, --invert', 'invert the boolean result (get 0 for NOT being on glitch)');
 
